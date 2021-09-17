@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import 'index.dart';
 
 class OneBridgeFlutter {
-  static Future lauchOneBridge(
-    BuildContext context,
+  static Future lauch(
+    BuildContext _,
   ) async {
     showDialog(
-        context: context,
+        context: _,
         builder: (context) {
-          return SizedBox(
-            width: MediaQuery.of(context).size.width * .9,
-            height: MediaQuery.of(context).size.width * .73,
-            child: OnebridgeWebView(),
+          return Container(
+            width: MediaQuery.of(context).size.width * .75,
+            height: MediaQuery.of(context).size.width * .60,
+            child: OnebridgeWebView(
+              shouldShowLogs: true,
+            ),
           );
         });
   }
