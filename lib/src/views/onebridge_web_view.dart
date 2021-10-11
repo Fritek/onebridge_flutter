@@ -11,7 +11,7 @@ import '../index.dart';
 
 class OnebridgeWebView extends StatefulWidget {
   /// Authentication Success callback
-  final Function(String code)? onAuthenticationSuccess;
+  final Function(Map<String, dynamic> data)? onAuthenticationSuccess;
 
   /// Show OneBridge Logs
   final bool shouldShowLogs;
@@ -93,5 +93,24 @@ class _OnebridgeWebViewState extends State<OnebridgeWebView> {
           Map<String, dynamic> res = json.decode(message.message);
           print(res);
         });
+  }
+
+  void handleChannelResponse(Map<String, dynamic>? body) async {
+    try {
+      String? key = body?['type'];
+      if (body != null && key != null) {
+        switch (key) {
+          case 'onebridge.account.linked':
+            var response = body['data'];
+            if (response == null) return;
+            if (widget.onAuthenticationSuccess != null)
+              widget.onAuthenticationSuccess!(response);
+            break;
+          default:
+        }
+      }
+    } catch (e) {
+      if (widget.shouldShowLogs == true) print(e.toString());
+    }
   }
 }

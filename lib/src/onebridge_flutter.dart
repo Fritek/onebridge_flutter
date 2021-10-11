@@ -4,8 +4,12 @@ import 'index.dart';
 
 class OneBridgeFlutter {
   static Future lauch(
-    BuildContext _,
-  ) async {
+    BuildContext _, {
+    required String token,
+
+    /// Success callback
+    Function(Map<String, dynamic> data)? onAuthenticationSuccess,
+  }) async {
     showDialog(
         context: _,
         builder: (context) {
@@ -14,6 +18,7 @@ class OneBridgeFlutter {
             height: MediaQuery.of(context).size.width * .60,
             child: OnebridgeWebView(
               shouldShowLogs: true,
+              onAuthenticationSuccess: onAuthenticationSuccess,
             ),
           );
         });

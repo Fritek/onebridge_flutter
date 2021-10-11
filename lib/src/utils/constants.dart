@@ -1,5 +1,6 @@
 class Constants {
-  static const initialWebViewUrl = "https://sleepy-lamarr-2c78c5.netlify.app/";
+  static const initialWebViewUrl =
+      "https://sleepy-lamarr-2c78c5.netlify.app?auth=at_live_0e3191a3072eaafb3f3f0e690f7695fe08ce932d4852346d369251411d6d1122bdb950c4f4cc663b4174f3aabf7eb9ba60c49c0bf3a34542e53e888e41b28234728365bb2d7b8c835dd97c052c09db4b839a72036a70f330e7b5cd0993cc362ecc996e6bfec20bf48d0aaa4a0718e48cce9b2c51091e160617ca7e0217165921219769ea3ad17ff4424d835bca453dd994a0f2ae96cde16a16290e6f2ed337767825c3e303abaf00e2906a0b35807342f9ceddbd2c24e771109e7cea7eaa5d6231718c4c6a9b042b3685938dcb180ae772db099bebf138b6de4dadea6a37335460c1dbf61a2bb5c9273265aabb1d1b8b9f75bdf4ee684d1583a3c1a050550598";
   static const defaultErrorMessage = "An Error Occured, Please Try again";
   static const googleAddres = "google.com";
 }
