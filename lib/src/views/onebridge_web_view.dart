@@ -10,6 +10,9 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../index.dart';
 
 class OnebridgeWebView extends StatefulWidget {
+  /// Authorization token
+  final String token;
+
   /// Authentication Success callback
   final Function(Map<String, dynamic> data)? onAuthenticationSuccess;
 
@@ -17,10 +20,10 @@ class OnebridgeWebView extends StatefulWidget {
   final bool shouldShowLogs;
 
   const OnebridgeWebView({
-    Key? key,
     this.onAuthenticationSuccess,
     required this.shouldShowLogs,
-  }) : super(key: key);
+    required this.token,
+  });
 
   @override
   _OnebridgeWebViewState createState() => _OnebridgeWebViewState();
@@ -39,7 +42,7 @@ class _OnebridgeWebViewState extends State<OnebridgeWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: loadUrl(),
+        future: loadUrl(widget.token),
         // initialData: "",
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {

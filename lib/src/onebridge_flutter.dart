@@ -8,7 +8,7 @@ class OneBridgeFlutter {
     required String token,
 
     /// Success callback
-    Function(Map<String, dynamic> data)? onAuthenticationSuccess,
+    required Function(Map<String, dynamic> data)? onAuthenticationSuccess,
   }) async {
     showDialog(
         context: _,
@@ -19,6 +19,7 @@ class OneBridgeFlutter {
             child: OnebridgeWebView(
               shouldShowLogs: true,
               onAuthenticationSuccess: onAuthenticationSuccess,
+              token: token,
             ),
           );
         });
