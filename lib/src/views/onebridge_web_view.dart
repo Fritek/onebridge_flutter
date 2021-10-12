@@ -95,6 +95,7 @@ class _OnebridgeWebViewState extends State<OnebridgeWebView> {
             print('OnebridgeClientInterface, ${message.message}');
           Map<String, dynamic> res = json.decode(message.message);
           print(res);
+          handleChannelResponse(res);
         });
   }
 
@@ -104,10 +105,11 @@ class _OnebridgeWebViewState extends State<OnebridgeWebView> {
       if (body != null && key != null) {
         switch (key) {
           case 'onebridge.account.linked':
-            var response = body['data'];
+            var response = body['response'];
             if (response == null) return;
-            if (widget.onAuthenticationSuccess != null)
+            if (widget.onAuthenticationSuccess != null) {
               widget.onAuthenticationSuccess!(response);
+            }
             break;
           default:
         }
